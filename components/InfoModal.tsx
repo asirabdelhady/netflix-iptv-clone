@@ -5,6 +5,7 @@ import PlayButton from '@/components/PlayButton';
 import FavoriteButton from '@/components/FavoriteButton';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
 import useMovie from '@/hooks/useMovie';
+import { random } from 'lodash';
 
 interface InfoModalProps {
   visible?: boolean;
@@ -38,13 +39,13 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
         <div className={`${isVisible ? 'scale-100' : 'scale-0'} transform duration-300 relative flex-auto bg-zinc-900 drop-shadow-md`}>
 
           <div className="relative h-96">
-            <video poster={data?.thumbnailUrl} autoPlay muted loop src={data?.videoUrl} className="w-full brightness-[60%] object-cover h-full" />
+            <video poster={data?.cover} autoPlay muted loop src={data?.videoUrl} className="w-full brightness-[60%] object-cover h-full" />
             <div onClick={handleClose} className="cursor-pointer absolute top-3 right-3 h-10 w-10 rounded-full bg-black bg-opacity-70 flex items-center justify-center">
               <XMarkIcon className="text-white w-6" />
             </div>
             <div className="absolute bottom-[10%] left-10">
               <p className="text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8">
-                {data?.title}
+                {data?.name}
               </p>
               <div className="flex flex-row gap-4 items-center">
                 <PlayButton movieId={data?.id} />
@@ -59,14 +60,14 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                 New
               </p>
               <p className="text-white text-lg">
-                {data?.duration}
+                {data?.episode_run_time}<span className="text-white text-lg"> mins</span>
               </p>
               <p className="text-white text-lg">
                 {data?.genre}
               </p>
             </div>
             <p className="text-white text-lg">
-              {data?.description}
+              {data?.plot}
             </p>
           </div>
 
