@@ -61,12 +61,39 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Movie {
+// model Movie {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   num Int?
+//   name String?
+//   stream_type String?
+//   stream_id Int?
+//   stream_icon String?
+//   rating String?
+//   added String?
+//   is_adult String?
+//   category_id String?
+//   container_extension String?
+//   customer_sid String?
+//   direct_source String?
+// }
+
+model Movie{
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  description String
-  videoUrl String
-  thumbnailUrl String
-  genre String
-  duration String
+  num Int?
+  name String?
+  series_id Int?
+  cover String?
+  plot String?
+  cast String?
+  director String?
+  genre String?
+  releaseDate String?
+  last_modified String?
+  rating String? 
+  rating_5based Int?
+  backdrop_path Json?
+  youtube_trailer String?
+  episode_run_time String?
+  category_id String?
+
 }

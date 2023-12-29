@@ -3,15 +3,15 @@ import { useRouter } from 'next/router';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon } from '@heroicons/react/24/solid';
 
-import { MovieInterface } from '@/types';
+import { SeriesInterface } from '@/types';
 import FavoriteButton from '@/components/FavoriteButton';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
 
 interface MovieCardProps {
-  data: MovieInterface;
+  data: SeriesInterface;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+const SeriesCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
   const { openModal } = useInfoModalStore();
 
@@ -80,11 +80,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             </div>
           </div>
           <p className="text-green-400 font-semibold mt-4">
-            New <span className="text-white">{data.name}</span>
-            <p className="text-white text-[10px] lg:text-sm">{data.plot.trimEnd()}</p>
+            New <span className="text-white">2023</span>
           </p>
           <div className="flex flex-row mt-4 gap-2 items-center"> 
-            <p className="text-white text-[10px] lg:text-sm">{data.episode_run_time}</p><span className="text-white text-[10px] lg:text-sm">mins</span>
+            <p className="text-white text-[10px] lg:text-sm">{data.episode_run_time}</p>
           </div>
           <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
             <p>{data.genre}</p>
@@ -95,4 +94,4 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   )
 }
 
-export default MovieCard;
+export default SeriesCard;
