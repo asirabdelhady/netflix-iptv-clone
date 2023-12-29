@@ -7,3 +7,17 @@ export interface MovieInterface {
   duration: string;
   genre: string;
 }
+
+export interface Category {
+  category_id: string;
+  category_name: string;
+  parent_id: number;
+}
+
+
+export interface Movie {
+  id: string;
+  title: string;
+  category_id: string;
+  category_name: string;
+}
