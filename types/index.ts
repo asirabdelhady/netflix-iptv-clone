@@ -43,3 +43,23 @@ export interface MovieInterface{
   episode_run_time: string;
   category_id: string;
 }
+
+export interface SeriesInterface{
+  id: string;
+  num: string;
+  name: string;
+  series_id: string;
+  cover: string;
+  plot: string;
+  cast: string;
+  director: string;
+  genre: string;
+  releaseDate: string;
+  last_modified: string;
+  rating: string;
+  rating_5based: string;
+  backdrop_path: StringChain;
+  youtube_trailer: string;
+  episode_run_time: string;
+  category_id: string;
+}
